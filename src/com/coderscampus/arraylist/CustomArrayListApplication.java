@@ -1,5 +1,9 @@
 package com.coderscampus.arraylist;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class CustomArrayListApplication {
 	public static void main(String[] args) {
 		numbersTest();
@@ -32,15 +36,29 @@ public class CustomArrayListApplication {
 	}
 
 	private static void numbersTest() {
+		Date start = new Date();
+		List<Integer> regularArrayList = new ArrayList<>();
+		for(int i=0; i<=50000000; i++) {
+			regularArrayList.add(i);
+		}
+		Date end = new Date();
+		
+		System.out.println("It took " + (end.getTime() - start.getTime()) + " milliseconds to complete");
+		
 		CustomList<Integer> numbers = new CustomArrayList<>();
 		
-		for(int i=0; i<=149; i++) {
+		start = new Date();
+		for(int i=0; i<=50000000; i++) {
 			numbers.add(i);
 		}
+		end = new Date();
+		System.out.println("It took " + (end.getTime() - start.getTime()) + " milliseconds to complete");
 		
-		// then you should validate that all the elements you've inserted actually exist in your data structure
-		for (int i=0; i<numbers.getSize(); i++) {
-		    System.out.println(numbers.get(i));
-		}
+//		// then you should validate that all the elements you've inserted actually exist in your data structure
+//		for (int i=0; i<numbers.getSize(); i++) {
+//		    System.out.println(numbers.get(i));
+//		}
+//		
+
 	}
 }
